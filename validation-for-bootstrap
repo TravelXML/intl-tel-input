@@ -7,6 +7,8 @@ telInput.intlTelInput({
 
 var validateIntlPhone = function() { 
   if ($.trim(telInput.val())) {
+      telInput.removeClass("error");
+      telInput.removeClass("valid");
     if (telInput.intlTelInput("isValidNumber")) {
       telInput.removeClass("error");
       telInput.addClass("valid");
