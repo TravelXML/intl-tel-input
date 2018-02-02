@@ -1,0 +1,21 @@
+/* phone verification start*/
+var telInput = $("#phone");
+// initialise plugin
+telInput.intlTelInput({
+  utilsScript: "../../build/js/utils.js"
+});
+
+var reset = function() {
+  //$('#phone').removeClass("error");
+  //$('#phone').removeClass("valid");
+  if ($.trim(telInput.val())) {
+    if (telInput.intlTelInput("isValidNumber")) {
+      telInput.removeClass("error");
+      telInput.addClass("valid");
+    } else {
+      telInput.removeClass("valid");
+      telInput.addClass("error");
+    }
+  }
+};
+/* phone verification end*/
