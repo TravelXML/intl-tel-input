@@ -1,13 +1,11 @@
-/* phone verification start*/
+/*JS phone verification start*/
 var telInput = $("#phone");
 // initialise plugin
 telInput.intlTelInput({
   utilsScript: "../../build/js/utils.js"
 });
 
-var reset = function() {
-  //$('#phone').removeClass("error");
-  //$('#phone').removeClass("valid");
+var validateIntlPhone = function() { 
   if ($.trim(telInput.val())) {
     if (telInput.intlTelInput("isValidNumber")) {
       telInput.removeClass("error");
@@ -18,4 +16,6 @@ var reset = function() {
     }
   }
 };
-/* phone verification end*/
+// on keyup / change flag: reset
+telInput.on("keyup keydown change", validateIntlPhone);
+/* JS phone verification end*/
